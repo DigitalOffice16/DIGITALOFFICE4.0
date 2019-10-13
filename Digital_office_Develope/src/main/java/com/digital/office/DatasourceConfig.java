@@ -12,8 +12,8 @@ public class DatasourceConfig {
         return DataSourceBuilder.create()
           .driverClassName("com.mysql.cj.jdbc.Driver")
           .url("jdbc:mysql://localhost:3306/digital_office")
-          .username("digital_office")
-          .password("digital")
+          .username("root")
+          .password("digital_office")
           .build(); 
     }
 }

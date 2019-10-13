@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name = "employee_detail")
-public class EmployeeDetail {
+public class EmployeeDetail extends AbstractAuditingEntity{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "employee_id")

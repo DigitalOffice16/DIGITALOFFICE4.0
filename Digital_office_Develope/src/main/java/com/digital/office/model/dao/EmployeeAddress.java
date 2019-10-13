@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee_address")
-public class EmployeeAddress {
+public class EmployeeAddress extends AbstractAuditingEntity{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "address_id")
