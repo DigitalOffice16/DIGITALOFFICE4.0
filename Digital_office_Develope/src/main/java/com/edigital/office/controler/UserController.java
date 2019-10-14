@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edigital.office.model.dao.User;
 import com.edigital.office.model.dto.OfficeUserDto;
-import com.edigital.office.service.UserServiceImpl;
+import com.edigital.office.service.impl.UserServiceImpl;
 
 
 @RestController

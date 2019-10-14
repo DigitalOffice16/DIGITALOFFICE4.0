@@ -3,6 +3,8 @@ package com.edigital.office;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.boot.SpringApplication;
@@ -16,9 +18,9 @@ public class DigitalOfficeDevelopeApplication {
 		SpringApplication.run(DigitalOfficeDevelopeApplication.class, args);
 	}
 
-	@Bean
+	@Bean	
 	public Mapper dozerBean() {
-		List<String> mappingFiles = Arrays.asList("digitalOfficeMapping.xml");
+		List<String> mappingFiles = Arrays.asList("mapper/digitalOfficeMapping.xml");
 		DozerBeanMapper dozerBean = new DozerBeanMapper();
 		dozerBean.setMappingFiles(mappingFiles);
 		return dozerBean;

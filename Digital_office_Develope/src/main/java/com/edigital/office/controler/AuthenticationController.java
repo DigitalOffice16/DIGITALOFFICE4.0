@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.edigital.office.model.dto.AuthToken;
 import com.edigital.office.model.dto.LoginUserDto;
 import com.edigital.office.securityconfig.TokenProvider;
-import com.edigital.office.service.UserServiceImpl;
+import com.edigital.office.service.impl.UserServiceImpl;
 
 
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/token")
 public class AuthenticationController {
@@ -37,7 +37,7 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody LoginUserDto loginUser) throws AuthenticationException {
-
+         
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginUser.getUsername(),
@@ -46,6 +46,7 @@ public class AuthenticationController {
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final String token = jwtTokenUtil.generateToken(authentication);
+        
         return ResponseEntity.ok(new AuthToken(token));
     }
 

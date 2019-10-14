@@ -1,10 +1,11 @@
-package com.edigital.office.service;
+package com.edigital.office.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,16 +28,19 @@ public class UserServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	private UserRepository UserRepository;
+	
+	@Autowired
+	Mapper mapper;
 
 	//@Autowired
 	//private BCryptPasswordEncoder bcryptEncoder;
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = UserRepository.findByUsername(username);
+		User user = UserRepository.findByUserName(username);
 		if(user == null){
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthority(user));
+		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), getAuthority(user));
 	}
 
 	private Set<SimpleGrantedAuthority> getAuthority(User user) {
@@ -72,11 +76,12 @@ public class UserServiceImpl implements UserDetailsService {
 
 	
     public User save(OfficeUserDto officeUserDto) {
-	    User newUser = new User();
-	    newUser.setUsername(officeUserDto.getUsername());
+    	User newUser = mapper.map(officeUserDto, User.class);
+	   // User newUser = new User();
+	    //newUser.setUserName(officeUserDto.getUserName());
 	    newUser.setPassword(getEncoder().encode(officeUserDto.getPassword()));
-		newUser.setFirstName(officeUserDto.getFirstName());;
-		newUser.setLastName(officeUserDto.getLastName());
+		//newUser.setFirstName(officeUserDto.getFirstName());;
+		//newUser.setLastName(officeUserDto.getLastName());
 		newUser.setStatus("1");
 		List<Role> roles=new ArrayList<Role>();
 		officeUserDto.getRoles().forEach(p->{

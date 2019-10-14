@@ -7,6 +7,6 @@ import com.edigital.office.model.dao.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	User findByUsername(String username);
-	public User findByUsernameAndPassword(String username,String password);
+	User findByUserName(String username);
+	public User findByUserNameAndPassword(String username,String password);
 }

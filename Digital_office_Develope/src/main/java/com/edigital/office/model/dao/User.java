@@ -23,7 +23,7 @@ public class User extends AbstractAuditingEntity{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "username", nullable = false)
-	private String username;
+	private String userName;
 	@Column(name = "password", nullable = false)
 	private String password;
 	@Column(name = "first_name", nullable = false)
@@ -47,12 +47,12 @@ public class User extends AbstractAuditingEntity{
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
