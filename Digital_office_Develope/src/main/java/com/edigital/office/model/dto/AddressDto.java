@@ -1,6 +1,8 @@
 package com.edigital.office.model.dto;
 
-import java.sql.Date;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class AddressDto {
 
@@ -21,7 +23,7 @@ public class AddressDto {
 	private String nominee1;
 
 	private String nominee2;
-
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dob;
 
 	private String birthPlace;

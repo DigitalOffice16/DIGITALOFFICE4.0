@@ -1,7 +1,11 @@
 package com.edigital.office.model.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+@JsonInclude(Include.NON_NULL)
 public class EmployeeDetailDto {
 	private Long employeeId;
 
@@ -12,7 +16,7 @@ public class EmployeeDetailDto {
 	private String employeeDepartment;
 
 	private String employeeType;
-
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dateOfJoin;
 
 	private Date LeaveCreditForm;
@@ -30,7 +34,7 @@ public class EmployeeDetailDto {
 	private String category;
 
 	private String grade;
-	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dateOfResign;
 
 	private String shiftRoster;
@@ -49,7 +53,7 @@ public class EmployeeDetailDto {
 
 	private String shiftGroup;
 
-	private String contactor;
+	private String contractor;
 
 	public Long getEmployeeId() {
 		return employeeId;
@@ -235,12 +239,14 @@ public class EmployeeDetailDto {
 		this.shiftGroup = shiftGroup;
 	}
 
-	public String getContactor() {
-		return contactor;
+	
+
+	public String getContractor() {
+		return contractor;
 	}
 
-	public void setContactor(String contactor) {
-		this.contactor = contactor;
+	public void setContractor(String contractor) {
+		this.contractor = contractor;
 	}
 
 	@Override
@@ -253,7 +259,7 @@ public class EmployeeDetailDto {
 				+ dateOfResign + ", shiftRoster=" + shiftRoster + ", employeeLocation=" + employeeLocation
 				+ ", holidayGroup=" + holidayGroup + ", branch=" + branch + ", designation=" + designation + ", status="
 				+ status + ", dateOfConfirmation=" + dateOfConfirmation + ", shiftGroup=" + shiftGroup + ", contactor="
-				+ contactor + "]";
+				+ contractor + "]";
 	}
 
 }

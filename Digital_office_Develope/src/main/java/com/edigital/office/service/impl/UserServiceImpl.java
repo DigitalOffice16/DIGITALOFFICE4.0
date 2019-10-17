@@ -20,11 +20,12 @@ import com.edigital.office.dao.repository.UserRepository;
 import com.edigital.office.model.dao.Role;
 import com.edigital.office.model.dao.User;
 import com.edigital.office.model.dto.OfficeUserDto;
+import com.edigital.office.service.UserService;
 import com.edigital.office.util.EdigitalOfficeUtil;
 
 
 @Service
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService ,UserService {
 	
 	@Autowired
 	private UserRepository UserRepository;
@@ -101,5 +102,11 @@ public class UserServiceImpl implements UserDetailsService {
     @Bean
 	PasswordEncoder getEncoder() {
 	    return new BCryptPasswordEncoder();
+	}
+
+	@Override
+	public User getUser(String userName) {
+		User user = UserRepository.findByUserName(userName);
+		return user;
 	}
 }

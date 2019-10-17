@@ -2,11 +2,14 @@ package com.edigital.office.model.dao;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "employee_detail")
@@ -83,8 +86,9 @@ public class EmployeeDetail extends AbstractAuditingEntity{
 	@Column(name = "shift_group")
 	private String shiftGroup;
 
-	@Column(name = "contactor")
-	private String contactor;
+	@Column(name = "contractor")
+	private String contractor;
+
 
 	public Long getEmployeeId() {
 		return employeeId;
@@ -270,12 +274,14 @@ public class EmployeeDetail extends AbstractAuditingEntity{
 		this.shiftGroup = shiftGroup;
 	}
 
-	public String getContactor() {
-		return contactor;
+	public String getContractor() {
+		return contractor;
 	}
 
-	public void setContactor(String contactor) {
-		this.contactor = contactor;
+	public void setContractor(String contractor) {
+		this.contractor = contractor;
 	}
+
+	
 
 }
