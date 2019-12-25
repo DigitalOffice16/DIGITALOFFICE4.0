@@ -20,7 +20,7 @@ public class EmployeeAddress extends AbstractAuditingEntity{
 	private Long addressId;
 	
 	@Column(name = "Employee_id")
-	private String employeeId;
+	private Long employeeId;
 	
 	@Column(name = "Father_name")
 	private String fatherName;
@@ -57,11 +57,13 @@ public class EmployeeAddress extends AbstractAuditingEntity{
 		this.addressId = addressId;
 	}
 
-	public String getEmployeeId() {
+	
+
+	public Long getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
 

@@ -35,7 +35,7 @@ public class EmployeeDetail extends AbstractAuditingEntity{
 	@Column(name = "dateOfJoin")
 	private Date dateOfJoin;
 
-	@Column(name = "LeaveCreditFormDate")
+	@Column(name = "leave_credit_form_date")
 	private Date LeaveCreditForm;
 
 	@Column(name = "shift_type")

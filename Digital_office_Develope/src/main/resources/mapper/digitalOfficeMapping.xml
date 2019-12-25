@@ -19,6 +19,7 @@
 			<b>lastName</b>
 		</field>
 	</mapping>
+
 	<mapping wildcard="false" map-null="false">
 		<class-a>com.edigital.office.model.dto.EmployeeDetailDto</class-a>
 		<class-b>com.edigital.office.model.dao.EmployeeDetail</class-b>
@@ -176,4 +177,30 @@
 			<b>birthPlace</b>
 		</field>
 	</mapping>
+	<!-- <mapping wildcard="false" map-null="false">
+		<class-a>com.edigital.office.model.dto.EmployeeDeviceLogDto</class-a>
+		<class-b>com.edigital.office.model.dao.EmployeeDeviceLog</class-b>
+		<field>
+			<a>deviceLogId</a>
+			<b>deviceLogId</b>
+		</field>
+		<field>
+			<a>deviceId</a>
+			<b>deviceId</b>
+		</field>
+		<field>
+			<a>employeeId</a>
+			<b>employeeId</b>
+		</field>
+		<field
+			custom-converter="com.edigital.office.util.DateConverter">
+			<a>downloadLogDate</a>
+			<b>downloadLogDate</b>
+		</field>
+		<field
+			custom-converter="com.edigital.office.util.DateConverter">
+			<a>logDate</a>
+			<b>logDate</b>
+		</field>
+	</mapping> -->
 </mappings>
